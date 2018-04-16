@@ -1,4 +1,4 @@
-#This file creates the plot from file plot1.png
+#This file creates the plot from file plot2.png
 
 #Gather sourece data remotely and unzip file into your default R directory
 
@@ -20,10 +20,14 @@ dataRaw <- read.table("household_power_consumption.txt", sep = ";", header = TRU
 # Only select the data for the day s we are interested in 
 data <- dataRaw[dataRaw$Date == "1/2/2007" | dataRaw$Date == "2/2/2007",]
 
-# Make Histogram, Be sure to set the axis range parameters to match the format of the example using the xaxp, yaxp parameters
-hist(as.numeric(as.character(data$Global_active_power)), col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power", yaxp = c(0,1200,6), xaxp = c(0,6,3))
+# combine date and time in to Posix time
+t <- strptime(paste(data$Date,data$Time),"%d/%m/%Y %H:%M:%S")
+
+# create line plot
+plot(t,as.numeric(as.character(data$Global_active_power)), type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
+
 
 # Copy graphic to PNG file
-dev.copy(png, file = "plot1.png")
+dev.copy(png, file = "plot2.png")
 dev.off()
 

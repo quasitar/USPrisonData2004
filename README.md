@@ -1,3 +1,11 @@
+## Instructions
+
+This folder contains two folders which include the solutions for the exercise specified below by Roger Peng.
+
+The folder "figure" contains 8 files, the "unnamed-chunk" files numbered 2-5, are the example figures used to design the "plot" figures which are numbered 1-4. 
+
+The folder "plotCode" contains 4 R files used the generate the corresponding "plot" figures.  
+
 ## Introduction
 
 This assignment uses data from
