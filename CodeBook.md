@@ -1,9 +1,25 @@
 ### Introduction
 
-This file describes the new data generated from the Human Activity Recognition Using Smartphones Dataset from UCI. The enclosed file "run_Analysis.R" has a function which combines the test and training data, and provides a summary of that data for analysis.
+This file describes the data analyzed for presentation in the following Tableau web stoty:
 
-UCI HAR file size is 60MB
-tidyAccel.txt file size is 220 KB
+https://public.tableau.com/profile/sean.kalsi#!/vizhome/pris2004/pris2004
+
+The data that was used for the presentation was sourced from the folowing 3 sources:
+
+US census data compiled from https://www.census.gov/prod/2005pubs/p60-229.pdf Table A-1
+
+Prison Income Data from https://www.prisonpolicy.org/reports/income.html Figure #6
+
+Prison Population of Males taken from https://www.bjs.gov/content/pub/pdf/p04.pdf  Table 10
+
+This data was copied by hand into the following R program which was then used to process the data:
+
+prisByRaceIncome.R
+
+This file produces the tidy .csv file prisIncRace2004.csv which was then uploaded into tableau.
+
+prisIncRace2004.csv file size is 4KB
+
 
 ### Data Code Book
 
