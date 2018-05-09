@@ -42,19 +42,19 @@ This table structure is a bit unorthodox due to the fact that it was used for pr
 
 There are a total of 7 columns. 
 
-Income Range: Contains values for each of the 6 income ranges specified above.
+`Income Range`: Contains values for each of the 6 income ranges specified above.
 
-Afr Amer Pop By Inc: The US Population of African Americans in 2004 for the specified income range. 
+`Afr Amer Pop By Inc`: The US Population of African Americans in 2004 for the specified income range. 
 
-Non Hisp White Pop By Inc: The US Population of Non Hispanic Whites in 2004 for the specified income range.
+`Non Hisp White Pop By Inc`: The US Population of Non Hispanic Whites in 2004 for the specified income range.
 
-Prison Pop By Inc: The population of prisoners in 2004 by pre-incarcertion income.
+`Prison Pop By Inc`: The population of prisoners in 2004 by pre-incarcertion income.
 
-Exp AA Pris Pop: The estimated expected number of African American males in the Prison Population for each income range.
+`Exp AA Pris Pop`: The estimated expected number of African American males in the Prison Population for each income range.
 
-Exp NH White Pris Pop: The estimated expected number of Non Hispanic White males in the Prison Population for each income range.
+`Exp NH White Pris Pop`: The estimated expected number of Non Hispanic White males in the Prison Population for each income range.
 
-ratioWtoAA: Contains the ratio of Non Hispanic Whites to African Americans in the US population for each income range in 2004.
+`ratioWtoAA`: Contains the ratio of Non Hispanic Whites to African Americans in the US population for each income range in 2004.
 
 
 
