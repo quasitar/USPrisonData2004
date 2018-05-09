@@ -14,11 +14,11 @@ Prison Population of Males taken from https://www.bjs.gov/content/pub/pdf/p04.pd
 
 This data was copied by hand into the following R program which was then used to process the data:
 
-prisByRaceIncome.R
+'prisByRaceIncome.R'
 
 This file produces the tidy .csv file prisIncRace2004.csv which was then uploaded into tableau.
 
-prisIncRace2004.csv file size is 4KB
+'prisIncRace2004.csv' file size is 4KB
 
 
 ### Data Code Book
