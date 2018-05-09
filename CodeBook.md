@@ -1,12 +1,12 @@
 ### Introduction
 
-This file describes the data analyzed for presentation in the following Tableau web stoty:
+This file describes the data analyzed for presentation in the following Tableau web story:
 
 https://public.tableau.com/profile/sean.kalsi#!/vizhome/pris2004/pris2004
 
-# Data Sources
+### Data Sources
 
-The data that was used for the presentation was sourced from the folowing 3 sources:
+The data that was used for the tableau presentation was sourced from the following 3 sources:
 
 US census data compiled from https://www.census.gov/prod/2005pubs/p60-229.pdf Table A-1
 
@@ -18,44 +18,49 @@ This data was copied by hand into the following R program which was then used to
 
 `prisByRaceIncome.R`
 
-This file produces the tidy .csv file prisIncRace2004.csv which was then uploaded into tableau.
+The program has an output as well, and it returns 6 numbers: the expected number and the actual number of African American Males in prison, followed by their ratio, then the next 3 numbers are the same but for Non-Hispanic Whites.
+
+This file produces the tidy .csv file `prisIncRace2004.csv` which was then uploaded into tableau.
 
 `prisIncRace2004.csv` file size is 4KB
 
 
 ### Data Code Book
 
-The "tidyAccel.txt" file contains a combined set of data from the UCI HAR test and training data. It contains a collection of averages for 66 combined accelerometer parameters which correspond to mean and standard deviation measurments accross all 6 activity categories, for all 30 users. Each of the 180 rows are averages of the mean and sd data for each user, and each activity.
+The `prisIncRace2004.csv` file contains 7 columns and six rows.
 
-"./UCI HAR Dataset/README.txt" contains more specific details on the data including a reference to their source.
+Each of the 6 rows has data that corresponds to the population data for each of the 6 income ranges.
 
-"./UCI HAR Dataset/features_info.txt" contains information about the 66 accelerometer parameters, plus the other parameters which were not pulled into this data set.
+$0-$25,000
+$25,000-$35,000
+$35,000-$50,000
+$50,000-$75,000
+$75,000-$100,000
+$100,000+
 
-"tidyAccel.txt" structure:
+This table structure is a bit unorthodox due to the fact that it was used for presentation purposes only. The data in the `prisByRaceIncome.R` was aggregated by eye from the references, and my analysis did not deal with the raw data that the references were sourced from.
 
-There are a total of 68 columns. 
+There are a total of 7 columns. 
 
-Col 1 = The user number which identifies the unique user that generated the data. There are 30 total users, numbered 1-30. 
+Income Range: Contains values for each of the 6 income ranges specified above.
 
-Col 2 = The activity the user was engaged in when the data was taken. There are 6 total activites which are described in "./UCI HAR Dataset/README.txt". 
+Afr Amer Pop By Inc: The US Population of African Americans in 2004 for the specified income range. 
 
-Col 3-68 = The average values for the mean and sd parametres measeured by the acclerometer for each user during each activity. These are described in "./UCI HAR Dataset/features_info.txt". Note: parentheses and dashes were removed as part of the tidy process, but the main naming structure reamins intact.
+Non Hisp White Pop By Inc: The US Population of Non Hispanic Whites in 2004 for the specified income range.
 
-The first line of the file contains the column names, and there are 30*6 = 180 total rows in the dataset, for a total of 181 lines.
+Prison Pop By Inc: The population of prisoners in 2004 by pre-incarcertion income.
+
+Exp AA Pris Pop: The estimated expected number of African American males in the Prison Population for each income range.
+
+Exp NH White Pris Pop: The estimated expected number of Non Hispanic White males in the Prison Population for each income range.
+
+ratioWtoAA: Contains the ratio of Non Hispanic Whites to African Americans in the US population for each income range in 2004.
+
 
 
 ### Cleaning Process
 
-This section describes the process of preparing the data for the "tidyAccel.txt" file. 
+Due to the fact that the pre-incarceration income data was originally binned by monthly income, it was necessary to convert that to annual income. The program `expandBins.R` was used for that purpose.
 
-1. Download and unzip the UCI HAR dataset
-2. Load 8 files necessary for compiling the combined dataset
-3. Store the file data into data structures for manipulation
-4. Add the activity and user information to the test and training data
-5. Merge the test and training datasets into one dataframe
-6. Create filters to only filter out feature names where they contain "mean()", or "std()"
-7. Filter merged data on column names which contain "mean()", or "std()"
-8. Tidy up column names by reomoving parentheses, spaces, and dashes. 
-9. Use dplyr to aggregate data by user and activity
-10. Create summary table which contains averages of all 66 parameters by user and activity.
-11. Send final summary data frame to text file
+The comments in the `prisByRaceIncome.R` code talk more about the method for creating the new bins.
+
