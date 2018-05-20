@@ -1,17 +1,18 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+"Reproducible Research: Peer Assessment 1"
+
+=====================================================
 
 
 ## Loading and preprocessing the data
 
 ```{R}
 df <- read.csv("activity.csv")
+
 ```
 
+## Test Plot
+
+![Sample panel plot](instructions_fig/test1.png) 
 
 ## What is mean total number of steps taken per day?
 
