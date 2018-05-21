@@ -97,3 +97,28 @@ hist(sumdat2$steps,breaks = 10)
 ![Sample panel plot](instructions_fig/hist2.png) 
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+First start by creating factor variable to denote which days are weekdays and weekends.
+
+```{R}
+library(lubridate)
+fdays <- wday(newdf$date)
+fdays[fdays == 1 | fdays == 7] <- 8
+fdays[fdays < 8] <- 1
+fdays <-  factor(fdays,labels=c("Weekday","Weekend"))
+newdf$daytype <- fdays
+```
+
+Then group by interval, and day type and complare the plots.
+
+```{R}
+ddf <- newdf %>%
+  group_by(interval,daytype) %>%
+  summarize(mstep = mean(steps,na.rm=TRUE))
+
+par(mfrow=c(2,1),mar = c(4, 4, 2, 2))
+plot(ddf$interval[ddf$daytype == "Weekday"],ddf$mstep[ddf$daytype == "Weekday"],type = "l", ylab = "Average Steps", xlab = "Interval", main = "Weekdays", col = "red")
+plot(ddf$interval[ddf$daytype == "Weekend"],ddf$mstep[ddf$daytype == "Weekend"],type = "l", ylab = "Average Steps", xlab = "Interval", main = "Weekends", col = "blue")
+```
+
+![Sample panel plot](instructions_fig/plot2.png) 
