@@ -12,13 +12,23 @@ df <- read.csv("activity.csv")
 
 ```
 
-## Test Plot
-
-![Sample panel plot](instructions_fig/test1.png) 
-
 
 ## What is mean total number of steps taken per day?
 
+
+```{R}
+stepSum <- group_by(df,date)
+sumdat <- summarize_all(stepSum,sum)
+summary(sumdat$steps)
+```
+
+Here is a distribution of the total number of steps taken in all days.
+
+```{R}
+hist(sumdat$steps,breaks = 10)
+```
+
+![Sample panel plot](instructions_fig/hist1.png) 
 
 
 ## What is the average daily activity pattern?
