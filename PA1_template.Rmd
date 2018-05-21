@@ -4,6 +4,9 @@ Reproducible Research: Peer Assessment 1
 
 ## Loading and preprocessing the data
 
+
+###Download and place the the data file in your local R directory. Then read the data into a dataframe.
+
 ```{R}
 df <- read.csv("activity.csv")
 
