@@ -11,7 +11,7 @@ Intro to Machine Learning: Final Project
 
 ### Executive Summary: 
 
-This analysis will estimate the classification category for manner of barbell lift. The barbell lift activity data is collected using a Human Activity Recognition(har) device. Using a random forrest model we estimate an ~10% out of sample error for predicting the correct classification. 
+This analysis will estimate the classification category for manner of barbell lift. The barbell lift activity data is collected using a Human Activity Recognition(har) device. Using a random forrest model we estimate an ~11% out of sample error for predicting the correct classification. 
 
 Background info & links to datasets used:
 http://web.archive.org/web/20161224072740/http:/groupware.les.inf.puc-rio.br/har
